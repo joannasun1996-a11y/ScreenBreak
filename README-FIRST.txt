@@ -1,36 +1,19 @@
-SCREENBREAK — STANDALONE WINDOWS INSTALLER BUILD
+SCREENBREAK - FIXED WINDOWS TEST PACKAGE
 
-This project is prepared to build a Windows installer in GitHub Actions.
-The person installing ScreenBreak will NOT need to install Python or pip packages.
+1. Extract the ZIP completely.
+2. First run: double-click "Setup ScreenBreak.bat". It requires Python 3.11
+   (64-bit) and installs the packages in requirements.txt.
+3. Later runs: double-click "Run ScreenBreak.bat".
 
-IMPORTANT:
-- The build must run on a Windows GitHub Actions runner.
-- The installer is x64 for Windows 11 64-bit.
-- This is an unsigned installer. Windows SmartScreen may show a warning because
-  the installer has not been code-signed. Do not bypass warnings unless you trust
-  the source and have checked the build.
-- Webcam access may need to be allowed in Windows Settings > Privacy & security > Camera.
-- ScreenBreak processes camera frames locally. It does not upload webcam video.
-- User progress is saved under %LOCALAPPDATA%\ScreenBreak.
+FIXES
+- Repaired an incomplete camera-toggle function that made screenbreak.py invalid
+  Python and prevented the windows from opening.
+- Camera preview is an independent Tk window. Its X closes only the preview.
+  The main ScreenBreak status window remains open.
+- Use "Show camera preview" to reopen the preview.
+- If the webcam cannot be read, the app does not count the unknown camera state
+  as away time during a required break.
+- Run ScreenBreak.bat shows startup errors rather than hiding them.
 
-HOW TO BUILD:
-1. Create a new empty repository on GitHub named ScreenBreak.
-2. Upload the CONTENTS of this folder to the repository (not the ZIP itself).
-3. Make sure the workflow file is at .github/workflows/build-windows.yml.
-4. Open the repository's Actions tab.
-5. Select "Build ScreenBreak for Windows" and run it, or push to main.
-6. Open the completed workflow run, scroll to Artifacts, and download
-   ScreenBreak-Windows-Installer.
-7. Extract the artifact ZIP. It contains ScreenBreak-Setup.exe.
-8. Test the installer on a separate Windows 11 computer before sharing it.
-
-INSTALLING:
-Double-click ScreenBreak-Setup.exe and follow the installer. Python is not required.
-The installer adds ScreenBreak to the current Windows user's startup at sign-in.
-Uninstalling ScreenBreak removes that startup entry.
-
-NOTE:
-This workflow is a first packaging attempt, not a claim that the resulting EXE has
-already been built or tested. MediaPipe/OpenCV packaging can sometimes require
-adjustments after the first cloud build. Test camera startup and gaze detection
-on a clean Windows 11 machine before distributing it widely.
+This is a Python test package, not a standalone EXE installer. Webcam processing
+is local; video is not recorded or uploaded. Gaze estimates can be imperfect.
