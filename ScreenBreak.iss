@@ -1,5 +1,5 @@
 #define MyAppName "ScreenBreak"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "2.32"
 #define MyAppPublisher "ScreenBreak"
 #define MyAppExeName "ScreenBreak.exe"
 
@@ -8,13 +8,13 @@ AppId={{8E6A0C71-6D49-4D2D-9C0D-2C0C9C9A42A1}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-DefaultDirName={autopf}\ScreenBreak
+DefaultDirName={localappdata}\Programs\ScreenBreak
 DefaultGroupName=ScreenBreak
 UninstallDisplayIcon={app}\{#MyAppExeName}
 OutputDir=dist-installer
 OutputBaseFilename=ScreenBreak-Setup
 ArchitecturesInstallIn64BitMode=x64
-PrivilegesRequired=admin
+PrivilegesRequired=lowest
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
