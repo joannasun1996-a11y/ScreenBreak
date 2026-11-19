@@ -1,36 +1,22 @@
-SCREENBREAK — STANDALONE WINDOWS INSTALLER BUILD
+SCREENBREAK — WINDOWS INSTALLER
 
-This project is prepared to build a Windows installer in GitHub Actions.
-The person installing ScreenBreak will NOT need to install Python or pip packages.
+Install:
+1. Open the ScreenBreak GitHub repository.
+2. Click “Download ScreenBreak for Windows” in the README.
+3. Run ScreenBreak-Setup.exe and follow the installer.
 
-IMPORTANT:
-- The build must run on a Windows GitHub Actions runner.
-- The installer is x64 for Windows 11 64-bit.
-- This is an unsigned installer. Windows SmartScreen may show a warning because
-  the installer has not been code-signed. Do not bypass warnings unless you trust
-  the source and have checked the build.
-- Webcam access may need to be allowed in Windows Settings > Privacy & security > Camera.
-- ScreenBreak processes camera frames locally. It does not upload webcam video.
-- User progress is saved under %LOCALAPPDATA%\ScreenBreak.
+The Windows installer contains ScreenBreak and its required Python packages.
+Python, pip, and a separate package installation are not needed. It is a
+64-bit Windows installer. The installer can create a desktop shortcut and
+launch ScreenBreak.
 
-HOW TO BUILD:
-1. Create a new empty repository on GitHub named ScreenBreak.
-2. Upload the CONTENTS of this folder to the repository (not the ZIP itself).
-3. Make sure the workflow file is at .github/workflows/build-windows.yml.
-4. Open the repository's Actions tab.
-5. Select "Build ScreenBreak for Windows" and run it, or push to main.
-6. Open the completed workflow run, scroll to Artifacts, and download
-   ScreenBreak-Windows-Installer.
-7. Extract the artifact ZIP. It contains ScreenBreak-Setup.exe.
-8. Test the installer on a separate Windows 11 computer before sharing it.
+ScreenBreak processes webcam frames on the computer. It does not upload webcam
+video. Allow camera access in Windows privacy settings when asked. Settings and
+progress are stored in the current user's %LOCALAPPDATA%\ScreenBreak folder.
 
-INSTALLING:
-Double-click ScreenBreak-Setup.exe and follow the installer. Python is not required.
-The installer adds ScreenBreak to the current Windows user's startup at sign-in.
-Uninstalling ScreenBreak removes that startup entry.
+Reports are sent only when the user enters a recipient address and clicks
+“Send report now”. Scheduled email sending is disabled. Email delivery requires
+a Google Apps Script service connection; see
+ScreenBreak\GOOGLE-CLOUD-EMAIL-SETUP.md.
 
-NOTE:
-This workflow is a first packaging attempt, not a claim that the resulting EXE has
-already been built or tested. MediaPipe/OpenCV packaging can sometimes require
-adjustments after the first cloud build. Test camera startup and gaze detection
-on a clean Windows 11 machine before distributing it widely.
+The installer is unsigned, so Windows SmartScreen may display a warning.
