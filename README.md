@@ -6,7 +6,7 @@
 
 Download ScreenBreak-Setup.exe and open it. The installer includes ScreenBreak and its Python dependencies; Python and pip do not need to be installed separately. This build is for 64-bit Windows.
 
-The installer offers a desktop shortcut and starts ScreenBreak after installation. ScreenBreak can be removed from Windows Settings > Apps.
+Install ScreenBreak once. After setup finishes, open **ScreenBreak** from the Windows Start menu or the desktop shortcut (if selected). You can close and reopen the app without installing it again. Windows also starts it automatically when you sign in. Keep `ScreenBreak-Setup.exe` for first-time installation or installing an update; it is not the app launcher. ScreenBreak can be removed from Windows Settings > Apps.
 
 ## Email reports
 
